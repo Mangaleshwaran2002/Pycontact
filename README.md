@@ -10,7 +10,7 @@ Without saving the contact to your phone, you can send a direct WhatsApp message
 ## Badges
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Flask]( https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.2.x/)
+
 
 _Social buttons_
 
