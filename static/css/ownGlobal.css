@@ -1,0 +1,10 @@
+
+.alert.success {
+    background-color: rgb(35, 170, 38);
+    color: white;
+}
+
+.alert.error {
+    background-color: rgba(224, 67, 67, 0.82);
+    color: white;
+}

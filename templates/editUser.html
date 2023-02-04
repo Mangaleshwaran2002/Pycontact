@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+  <!-- {/* signup section  */} -->
+  <section class='min-h-screen min-w-screen flex justify-center items-center dark:bg-gray-800' id='loginform'>
+    
+    <div class='px-5 py-6 sm:px-6 sm:py-7 rounded-lg lg:shadow-xl lg:shadow-gray-500 dark:bg-white flex flex-col justify-center items-center dark:text-black'>
+        <div id="img">
+            <div class="w-full h-auto my-5 flex justify-center ">
+                <img src="{{url_for('static',filename='img/man.png')}}" alt="man" srcset="" class="w-20 h-20 bg-white px-5 py-5  rounded-xl border-4 border-gray-400">
+                </div>
+        </div>
+        <form action="{{url_for('auth.edit_user')}}" method="post" class="flex flex-col justify-center items-center">
+        <div id="details" class="mx-9 my-9 flex flex-col justify-center items-center gap-5">
+            <h1 class=" capitalize ">username: <input type="text" name="username" id="username" value="{{ current_user.username }}" class=" capitalize bg-transparent rounded-md border-2 mx-5" /></h1>
+        </div>
+        <div id="btn">
+            <button type="submit" class="mx-3 my-4 px-3 py-3 rounded-md border-2 hover:border-blue-500 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save text-blue-500" viewBox="0 0 16 16">
+                    <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+                  </svg><span>change</span>
+            </button>
+        </div>
+        </form>
+
+    
+        
+    
+        
+
+    </div>
+    
+    </section>
+    <!-- {/* signup section  */} -->
+{% endblock %}

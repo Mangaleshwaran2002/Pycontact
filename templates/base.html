@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="og:title" content="EasyConnect">  
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    <!-- own css -->
+  <link rel="stylesheet" href="{{url_for('static',filename='css/ownGlobal.css')}}">
+
+    <!-- own css -->
+    <!-- tw element  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <!-- tw element  -->
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+          darkMode:"class",
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body onload="setcookie('{{ mode }}')">
+ 
+  
+  <div class="mode">
+    
+    <div class="min-h-screen min-w-screen font-serif scroll-smooth dark:bg-gray-800 dark:text-white transition-all duration-500 ease-linear">
+    {% include 'navbar.html' %}
+    {% with msgs = get_flashed_messages(with_categories=true) %}
+        {% for  category,message in msgs %}
+        <div class="w-full flex justify-center items-center ">
+            <div class="mx-2 my-5 px-3 py-3 border-2 rounded-md flex justify-between text-center w-8/12 alert {{ category }}">
+              {{ message|capitalize }}
+              <i class="text-white" onclick="this.parentNode.parentNode.removeChild(this.parentNode);">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              </i>
+            </div>
+          </div>
+        {% endfor %}
+    {% endwith %}
+    {% block body %}
+    {% endblock %}
+    <p class="love w-full flex justify-center items-center">Made with 
+      <span class="mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill text-red-500" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+    </svg></span> By mangal</p>
+  </div>
+  </div>
+  
+    <script src="{{url_for('static',filename='js/script.js')}}"></script>
+</body>
+</html>

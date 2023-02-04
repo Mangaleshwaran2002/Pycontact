@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    <!-- {/* login section  */} -->
+    <section>
+      <div class='min-h-screen dark:bg-gray-800 dark:text-white flex justify-center items-center transition-all duration-1000 ease-linear font-sans'>
+          <div class='flex flex-wrap w-min px-9 py-5 md:px-20 lg:w-auto justify-center shadow-lg shadow-blue-300 transition-all duration-500 ease-in-out bg-white rounded-lg border-2'>
+              <div class='invisible sm:visible h-0 sm:h-auto my-5 lg:mx-5 lg:ml-10 md:flex py-2 md:justify-center lg:flex  lg:justify-center md:items-center lg:items-center lg:mr-8 lg:pt-5  border-r-4 pr-12'>
+                  <img src="{{url_for('static',filename='img/svg/Login.svg')}}" class="w-40 h-40  md:w-60 md:h-60 lg:w-80 lg:h-80 rounded-lg shadow-sm"></img>
+              </div>
+
+              <div class='lg:py-2 lg:px-1 lg:mx-5 lg:my-5 dark:text-black text-center'>
+                <h2 class="text-3xl font-bold text-teal-500">Login</h2>
+                  <form action="{{url_for('auth.login')}}" method="post" class='lg:px-1 lg:py-2 flex flex-col items-center transition-all duration-700 ease-in-out '>
+                    
+                      <input type="email" name="email" id="" placeholder='email' 
+                      class='lg:px-8 lg:py-3 mx-5 my-5  border-solid border-b-2 hover:border-sky-500 text-center lg:text-lg placeholder:font-semibold  transition-all duration-500 ease-in-out placeholder:capitalize rounded-lg' />
+                      <input type="password"  name="passwd" id="" placeholder='password' 
+                      class='lg:px-8 lg:py-3 mx-5 my-5  border-solid border-b-2 hover:border-sky-500 text-center lg:text-lg placeholder:font-semibold  transition-all duration-500 ease-in-out placeholder:capitalize rounded-lg' />
+
+                     
+                      <button type="submit" class='mx-8 my-7 bg-teal-500 w-1/2 px-1 lg:px-2 py-1 lg:py-3 rounded-xl text-white capitalize transition-all duration-300 ease-in '>login</button>
+                  </form>
+                  <div id="redirect" class='flex w-full justify-center my-5 text-gray-500'>
+                    <h3>Don't have an account.</h3>
+                    <a href="{{url_for('auth.signup')}}">
+                      <button class="text-blue-500">click here</button>
+                  </a>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </section>
+    <!-- {/* login section  */} -->
+
+{% endblock %}

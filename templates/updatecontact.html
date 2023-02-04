@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+EasyConnect
+{% endblock %}
+
+
+{% block body %}
+    <section class="transition-all duration-500 ease-linear">
+        <div class='min-h-screen dark:bg-gray-800 dark:text-white flex justify-center items-center transition-all duration-500 ease-linear font-sans'>
+            <div class='flex flex-wrap w-min px-9 py-5 md:px-20 lg:w-auto justify-center shadow-lg shadow-blue-300 transition-all duration-500 ease-linear bg-white rounded-lg border-2'>
+                <div class='invisible sm:visible h-0 sm:h-auto my-5 lg:mx-5 lg:ml-10 md:flex px-2 py-2 md:justify-center lg:flex  lg:justify-center md:items-center lg:items-center lg:p-5 lg:mr-8 lg:pt-5 '>
+                    <img src="{{url_for('static',filename='img/svg/undraw_everywhere_together.svg')}}" class="w-40 h-40  md:w-60 md:h-60 lg:w-80 lg:h-80 rounded-lg shadow-sm"></img>
+                </div>
+
+                <div class='lg:py-2 lg:px-1 lg:mx-5 lg:my-5 dark:text-black'>
+                    {% if contact %}
+                    <form action="{{url_for('views.updatecontact',id=contact.id)}}" method="post" class='lg:px-1 lg:py-2 flex flex-col items-center transition-all duration-700 ease-in-out '>
+                        
+                        <input type="text" required name="firstname" id="" placeholder='firstname' 
+                        class='lg:px-8 lg:py-3 mx-5 my-5  border-solid border-b-2 hover:border-sky-500 text-center lg:text-lg placeholder:font-semibold  transition-all duration-500 ease-in-out capitalize rounded-lg invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500' value="{{contact.firstname}}"/>
+                        <input type="text" name="lastname" id="" placeholder='lastname' class='lg:px-8 lg:py-3 mx-5 my-5  border-solid border-b-2 hover:border-sky-500 text-center lg:text-lg placeholder:font-semibold  transition-all duration-500 ease-in-out capitalize rounded-lg invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500' value="{{contact.lastname}}" />
+                        <input type="tel" required name="phonenumber" id=""  placeholder='phonenumber' class='lg:px-8 lg:py-3 mx-5 my-5  border-solid border-b-2 hover:border-sky-500 text-center lg:text-lg placeholder:font-semibold  transition-all duration-500 ease-in-out capitalize rounded-lg invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500'  value="{{contact.phonenumber}}"/>
+                        <div class="mx-2 my-3">
+                            {% if contact.gender == 'm' %}
+                            <input class="px-2 py-2 mx-1 my-2" type="radio" name="gender" id="" value="m" checked="checked"><span class="mx-2 capitalize font-semibold text-gray-600">Male</span>
+                            <input class="px-2 py-2 mx-1 my-2" type="radio" name="gender" id="" value="f"><span class="mx-2 capitalize font-semibold text-gray-600">Female</span>
+                            {% else %}
+                            <input class="px-2 py-2 mx-1 my-2" type="radio" name="gender" id="" value="m" ><span class="mx-2 capitalize font-semibold text-gray-600">Male</span>
+                            <input class="px-2 py-2 mx-1 my-2" type="radio" name="gender" id="" value="f" checked="checked"><span class="mx-2 capitalize font-semibold text-gray-600">Female</span>
+                            {% endif %}
+                        </div>
+                        <input type="email" name="email" id="" placeholder='email(optional)' class='lg:px-8 lg:py-3 mx-5 my-5  border-solid border-b-2 hover:border-sky-500 text-center lg:text-lg placeholder:font-semibold  transition-all duration-500 ease-in-out capitalize rounded-lg invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500' value="{{contact.email}}"/>                    
+                        <button type="submit" class='mx-8 my-7 bg-teal-300 w-1/2 px-1 lg:px-2 py-1 lg:py-3 rounded-xl text-black hover:text-blue-600 capitalize transition-all duration-300 ease-in '>submit</button>
+                    </form>
+                    {% endif %}
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

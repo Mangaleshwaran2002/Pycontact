@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AllContacts
+{% endblock %}
+
+
+{% block body %}
+    <div class="min-w-screen min-h-screen bg-white dark:bg-gray-800 dark:text-white transition-all duration-500 ease-linear">
+    
+         <!-- body section   -->
+        <div class="min-w-screen min-h-screen  flex justify-center bg-white dark:bg-gray-800 dark:text-white transition-all duration-500 ease-linear">
+          <div class="px-2 lg:px-40 py-5 my-2">
+            {% if contacts|length > 0 %}
+            <ol>
+            {% for contact in contacts %}
+            <!-- according  -->
+
+               <!-- body  -->
+               <li class="contact">
+               <div class="ml-10 lg:px-10 py-5 my-5 mr-12 pr-5 w-min  flex flex-row items-center bg-white dark:bg-white text-black dark:text-black shadow-lg shadow-black dark:shadow-black dark:shadow-md rounded-xl dark:shadow-md w-9/12">
+                <p class="">
+                  <a class="inline-block transition duration-150 ease-in-out" data-bs-toggle="collapse" href="#{{ contact.firstname }}{{ contact.id }}" role="button" aria-expanded="false" aria-controls="{{ contact.firstname }}{{ contact.id }}">
+
+                  <div class="px-1 py-2 ml-5 my-5 text-4xl lg:text-6xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 lg:w-14 text-white bg-blue-500 py-2 px-2 rounded-full">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                      </svg> 
+                  </div>
+                
+                  <div class="px-1 lg:px-3 py-2 flex flex-col mx-5 my-3">
+                    <h1 class="lg:text-2xl capitalize">
+                      {{ contact.firstname }} {{ contact.lastname|default(' ', true)  }}</h1>
+                    <!-- <h2 class="lg:text-2xl">{{ contact.phonenumber }}</h2> -->
+                  </div>
+                </a>
+              </p>
+                
+  
+                <div class="flex flex-row  gap-2">
+                  <a href="https://wa.me/+91{{ contact.phonenumber }}">
+                    <button class="text-sm px-3 lg:px-5 py-2 lg:py-5 lg:text-2xl border-2 border-green-500 rounded-2xl text-green-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                      </svg>
+                     </button>
+                  </a>
+                  <a href="tel:+91{{ contact.phonenumber }}" class="visible sm:invisible sm:w-0 sm:h-0">
+                    <button class="text-sm px-3 lg:px-5 py-2 lg:py-5 lg:text-2xl border-2 border-blue-500 rounded-2xl text-blue-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+                      </svg>
+                     </button>
+                  </a>
+                  
+                  
+                </div>
+
+              </div>
+               </li>
+               <!-- body  -->
+                
+
+            <div class="collapse" id="{{ contact.firstname }}{{ contact.id }}">
+                <div class="block px-5 mx-9 py-5 w-auto h-auto mx-3 my-3 mb-9 bg-white dark:bg-white text-black dark:text-black shadow-lg shadow-black dark:shadow-black dark:shadow-md rounded-xl">
+                  {% if contact.gender == 'm' %}
+                  <div class="w-full h-auto my-5 flex justify-center ">
+                  <img src="{{url_for('static',filename='img/man.png')}}" alt="man" srcset="" class="w-20 h-20 bg-white px-5 py-5  rounded-xl border-4 border-gray-400">
+                  </div>
+                  {% else %}
+                  <div class="w-full h-auto my-5 flex justify-center">
+                    <img src="{{url_for('static',filename='img/woman.png')}}" alt="man" srcset="" class="w-20 h-20 bg-white px-5 py-5 rounded-xl border-4 border-gray-400">
+                    </div>
+                  {% endif %}
+                  <h2 class="capitalize font-semibold sm:my-3 sm:mx-2 text-sm sm:text-base">firstname :<span class="mx-4">{{ contact.firstname }}</span></h2>
+                  <h2 class="capitalize font-semibold sm:my-3 sm:mx-2 text-sm sm:text-base">lastname :<span class="mx-4">{{ contact.lastname|default('lastname is not defined', true)  }}</span></h2>
+                  <h2 class="capitalize font-semibold sm:my-3 sm:mx-2 text-sm sm:text-base">phonenumber :<span class="mx-4">{{ contact.phonenumber }}</span></h2>
+                  <h2 class="font-semibold sm:my-3 sm:mx-2 text-sm sm:text-base">Email :<span class="mx-4">{{ contact.email|default('Email is not defined', true) }}</span></h2>
+                  <!-- buttons -->
+                  <div class="w-full flex flex-row justify-between gap-2 pt-5">
+
+                    <a href="{{url_for('views.updatecontact',id=contact.id)}}">
+                      <button class="text-sm px-3 lg:px-5 py-2 lg:py-5 lg:text-2xl text-teal-500 rounded-2xl border-2 border-teal-500 bg-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                      </svg>
+                      </button>
+                    </a>
+                   
+                    <a href="{{url_for('views.deletecontact',id=contact.id)}}">
+                      <button class="text-sm px-3 lg:px-5 py-2 lg:py-5 lg:text-2xl text-red-500 rounded-2xl border-2 border-red-500 bg-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                      </svg>
+                       </button>
+                    </a>
+
+                  </div>
+                  <!-- buttons -->
+                </div>
+
+
+            </div>
+            <!-- according  -->
+
+
+            {% endfor %}
+            </ol>
+            {% else %}
+            <div class="flex justify-center items-center dark:text-white">
+              <h2 class="text-2xl lg:text-4xl">No Contacts Found</h2>
+            </div>
+            {% endif %}
+          </div>    
+        </div>
+    </div>
+      <footer class="fixed inset-x-0 bottom-0 p-4 dark:bg-gray-800 dark:text-white transition-all duration-500 ease-linear flex justify-end visible sm:invisible"> 
+        <a href="{{url_for('views.savecontact')}}" class="mx-5 my-3" >
+          <button class="w-14 h-14 bg-blue-500 flex justify-center items-center rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>                
+          </button>
+        </a>
+      </footer>
+{% endblock %}

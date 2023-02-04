@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Pycontacts
+{% endblock %}
+
+
+{% block body %}
+<div class="min-h-screen min-w-screen font-serif scroll-smooth dark:bg-gray-800 dark:text-white transition-all duration-500 ease-linear">
+    <!-- input tag -->
+    <input id="searchbar" onkeyup="search_animal()" type="text"
+    name="search" placeholder="Search contact.." class="mx-5 my-5">
+    <ol class="mx-5 my-3">
+    {% for contact in contacts %}
+    <li class="contact">{{ contact.firstname }}</li>
+    {% endfor %}        
+    </ol>
+</div>
+{% endblock %}
