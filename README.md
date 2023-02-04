@@ -23,7 +23,7 @@ _Social buttons_
 
 [![Mangaleshwaran2002 - Pycontact](https://img.shields.io/static/v1?label=Mangaleshwaran2002&message=Pycontact&color=blue&logo=github)](https://github.com/Mangaleshwaran2002/Pycontact "Go to GitHub repo")
 
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.org/_._._alone_wolf_._._)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/_._._alone_wolf_._._)
 
 _Repo metadata_
 
