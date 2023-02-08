@@ -1,0 +1,28 @@
+{% extends 'admin/master.html' %}
+{% block head_css %}
+{{ super() }}
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+<script>
+    tailwind.config = {
+      darkMode:"class",
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+{% endblock head_css %}
+
+
+
+{% block body %}
+<h2 class="my-5 mx-5 py-3 px-3 text-2xl">welcome <span class="ml-2 text-teal-500 capitalize">{{ current_user.username }}</span>.</h2>
+<button type="button" class="my-5 mx-5 px-1 py-1 border-2 hover:border-teal-400">
+  <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-teal-100"
+href="{{url_for('views.contacts')}}" >dashboard</a>
+</button>
+
+{% endblock %}
