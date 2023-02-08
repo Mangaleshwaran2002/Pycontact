@@ -64,6 +64,12 @@ Start the server
   python app.py
 ```
 
+Create admin account using cli command
+
+```bash
+  flask create-admin
+```
+
 
 ## Tech Stack
 
