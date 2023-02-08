@@ -8,7 +8,7 @@ app=create_app()
 # command line authentication 
 import click
 
-# @app.cli.command("create-user")
+# @app.cli.command("create-admin")
 # @click.argument("name")
 # def create_user(name):
 #     click.echo(f"name:{name}")
