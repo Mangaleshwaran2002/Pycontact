@@ -8,12 +8,13 @@
 Pycontact is a free and open-source contact management application created with Flask with Tailwind CSS.
 By using Pycontact, you can save your contacts online instead of on your mobile contact list.
 Without saving the contact to your phone, you can send a direct WhatsApp message from the Pycontact webapp.
-## Demo
+
+## 🧐 Demo
 
 https://mangal.pythonanywhere.com/
 
 
-## Badges
+## 🎖 Badges
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 
@@ -35,10 +36,12 @@ _Repo metadata_
 
 
 
-## License
+## 📜 License
 
 Released under [MIT](/LICENSE) by [@Mangaleshwaran2002](https://github.com/Mangaleshwaran2002).
-## Run Locally
+
+
+## 👨‍💻 Run Locally
 
 Clone the project
 
@@ -70,13 +73,13 @@ Create admin account using cli command
   flask create-admin
 ```
 
-##  Bugs/Requests
+## 🐛 Bugs/Requests
 
 If you encounter any problems feel free to open an issue. If you feel the library is
 missing a feature, please raise a ticket on Github and I'll look into it.
 Pull request are also welcome.
 
-## Tech Stack
+##  Tech Stack
 
 **Client:**  TailwindCSS
 
