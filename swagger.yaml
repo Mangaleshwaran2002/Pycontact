@@ -1,0 +1,236 @@
+openapi: 3.0.0
+info:
+  title: "RP Flask REST API"
+  description: "An API about people and notes"
+  version: "1.0.0"
+
+servers:
+  - url: "/api"
+
+components:
+
+  schemas:
+    Account:
+      type: "object"
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: "string"
+        password:
+          type: "string"
+    Phonebook:
+      type: "object"
+      required:
+        - firstname
+        - phonenumber
+      properties:
+        firstname:
+          type: "string"
+        lastname:
+          type: "string"
+        phonenumber:
+          type: "integer"
+        email:
+          type: "string"
+        gender:
+          type: "boolean"
+    UserAccount:
+      type: "object"
+      required:
+        - username
+        - email
+        - password
+      properties:
+        username:
+          type: "string"
+        email:
+          type: "string"
+        password:
+          type: "string"
+  parameters:
+    token:
+      name: "token"
+      description: "Authentication token to authorise the user"
+      in: query
+      required: True
+      schema:
+        type: "string"
+    user_id:
+      name: "user_id"
+      description: "Enter the user id"
+      in: query
+      required: True
+      schema:
+        type: "integer"
+      name: "token"
+      description: "Authentication token to authorise the user"
+      in: query
+      required: True
+      schema:
+        type: "string"
+paths:
+  /auth:
+    post:
+      operationId: "apiauth.login_user"
+      tags:
+        - Authentication
+      summary: "Create Authentication Token"
+
+      requestBody:
+          description: "Create Authentication Token"
+          required: True
+          content:
+            application/json:
+              schema:
+                x-body-name: "Account"
+                $ref: "#/components/schemas/Account"
+      responses:
+        "200":
+          description: "Successfully Created Authentication Token"
+  /users:
+      get:
+        operationId: "api.read_all_users"
+        tags: 
+         - User
+        summary: "Read all users details"
+        parameters:
+          - $ref: "#/components/parameters/token"
+        responses:
+          "200":
+           description: "successfully read all users details"
+      post:
+        operationId: "api.create_user"
+        tags:
+          - User
+        summary: "Create a new user account"
+
+        requestBody:
+            description: "Create user account"
+            required: True
+            content:
+              application/json:
+                schema:
+                  x-body-name: "UserAccount"
+                  $ref: "#/components/schemas/UserAccount"
+        responses:
+          "200":
+            description: "Successfully Created user account"
+
+  /users/{userId}/:
+    delete:
+      tags:
+        - User
+      operationId: "api.delete_user"
+      summary: "Delete a user"       
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : integer
+        - name: token
+          in: query
+          description: token to authenticate.
+          schema:
+            type : string
+            # format: int64
+      responses:
+        "204":
+          description: "Successfully deleted person"
+  
+  /contact:
+    get:
+      tags:
+        - Contact
+      operationId: "api.get_contact"
+      summary: "Read all contact details"
+      parameters:
+        - name: token
+          in: query
+          description: token to authenticate.
+          schema:
+            type : string
+      responses:
+        "200":
+          description: "Successfully read all the contact"
+    
+    post:
+      tags:
+        - Contact
+      operationId: "api.create_contact"
+      summary: "Create a new contact"
+      parameters:
+        - name: token
+          in: query
+          description: token to authenticate.
+          schema:
+            type : string
+      requestBody:
+          description: "Create a new contact details"
+          required: True
+          content:
+            application/json:
+              schema:
+                x-body-name: "Phonebook"
+                $ref: "#/components/schemas/Phonebook"
+      responses:
+        "200":
+          description: "Successfully created contact"
+  /contact/{contactId}/:
+    delete:
+      tags:
+        - Contact
+      operationId: "api.del_contact"
+      summary: "Delete a  contact"       
+      parameters:
+        - name: contactId
+          in: path
+          required: true
+          description: Contact id to delete a specific contact 
+          schema:
+            type : integer
+        - name: token
+          in: query
+          required: true
+          description: token to authenticate.
+          schema:
+            type : string
+            # format: int64
+      responses:
+        "204":
+          description: "Successfully deleted contact"
+    put:
+      tags:
+          - Contact
+      operationId: "api.edit_contact"
+      summary: "Create a new contact"
+      parameters:
+          - name: contactId
+            in: path
+            required: true
+            description: Contact id to edit a specific contact 
+            schema:
+              type : integer
+          - name: token
+            in: query
+            required: true
+            description: token to authenticate.
+            schema:
+              type : string
+      requestBody:
+            description: "edit contact details"
+            required: True
+            content:
+              application/json:
+                schema:
+                  x-body-name: "Phonebook"
+                  $ref: "#/components/schemas/Phonebook"
+      responses:
+          "200":
+            description: "Successfully created contact"
+          
+                 
+      
