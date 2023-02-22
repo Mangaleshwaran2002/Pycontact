@@ -1,8 +1,5 @@
 
 
-![Logo](https://mangal.pythonanywhere.com/download)
-
-
 # Pycontacts
 
 Pycontact is a free and open-source contact management application created with Flask with Tailwind CSS.
