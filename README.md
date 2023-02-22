@@ -67,11 +67,39 @@ Start the server
   python app.py
 ```
 
+server runs on localhost port 5000
+
+```bash
+  [python app.py](http://127.0.0.1:5000/)
+```
+
+
+Api Url
+
+```bash
+  [python app.py](http://127.0.0.1:5000/api/ui)
+```
+
 Create admin account using cli command
 
 ```bash
   flask create-admin
 ```
+
+## Screenshots
+
+Signup page
+![App Signup page Screenshot](https://s6.imgcdn.dev/SmEXh.png)
+
+Login page
+![App Signup page Screenshot](https://s6.imgcdn.dev/SmJIV.png)
+
+Index page
+![App Signup page Screenshot](https://s6.imgcdn.dev/SmoBK.png)
+
+Api page
+![App Signup page Screenshot](https://s6.imgcdn.dev/SmpLo.png)
+
 
 ## 🐛 Bugs/Requests
 
