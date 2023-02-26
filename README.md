@@ -8,7 +8,7 @@ Without saving the contact to your phone, you can send a direct WhatsApp message
 
 ## 🧐 Demo
 
-https://mangal.pythonanywhere.com/
+https://pycontacts.pythonanywhere.com/
 
 
 ## 🎖 Badges
