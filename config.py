@@ -20,7 +20,7 @@ login_manager.init_app(app)
 admin.init_app(app)
 ma.init_app(app)
 # init section 
-app.secret_key="easyconnect"
+app.secret_key=os.urandom(16)
 basepath=app.root_path
 DATABASE_FOLDER=basepath+'/Database'
 os.makedirs(DATABASE_FOLDER,exist_ok=True)
